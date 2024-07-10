@@ -224,7 +224,7 @@ class Restaurant {
     customerOrderDate = json['customer_order_date'];
     freeDeliveryDistanceStatus = json['free_delivery_distance_status'];
     freeDeliveryDistanceValue = (json['free_delivery_distance_value'] != null && json['free_delivery_distance_value'] != '') ? double.parse(json['free_delivery_distance_value'].toString()) : null;
-    restaurantOpeningTime = json['current_opening_time'];
+    restaurantOpeningTime = json['current_opening_time'] ?? "10:10:10";
     extraPackagingStatusIsMandatory = json['extra_packaging_status'] ?? false;
     extraPackagingAmount = json['extra_packaging_amount']?.toDouble() ?? 0;
     if(json['ratings'] != null && json['ratings'] != 0){
@@ -240,7 +240,7 @@ class Restaurant {
         characteristics!.add(v);
       });
     }
-    isExtraPackagingActive = json['is_extra_packaging_active'];
+    isExtraPackagingActive = json['is_extra_packaging_active'] ?? false;
   }
 
   Map<String, dynamic> toJson() {
